@@ -2,8 +2,18 @@
 
 context ('Funcionalidade login', () =>{
 
-    it ('Deve fazer login com sucesso', ()=> {
+    beforeEach(() => {
         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+
+    });
+    
+    afterEach(() => {
+        cy.screenshot()
+        
+    });
+    
+
+    it ('Deve fazer login com sucesso', ()=> {
         cy.get('.woocommerce-form > :nth-child(1) > label').type('aluno_ebac@teste.com')
         cy.get('.woocommerce-form > :nth-child(2) > label').type('teste@teste.com')
         cy.get('.woocommerce-form > .button').click()
@@ -13,7 +23,6 @@ context ('Funcionalidade login', () =>{
     })
 
     it("Deve exibir uma mensagem de erro ao inserir usuário inválido", ()=> {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
         cy.get('.woocommerce-form > :nth-child(1) > label').type('@teste.com')
         cy.get('.woocommerce-form > :nth-child(2) > label').type('teste@teste')
         cy.get('.woocommerce-form > .button').click()
@@ -23,7 +32,6 @@ context ('Funcionalidade login', () =>{
     })
 
     it("Deve exibir uma mensagem de erro ao inserir senha inválida", ()=> {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
         cy.get('.woocommerce-form > :nth-child(1) > label').type('aluno_ebac@teste.com')
         cy.get('.woocommerce-form > :nth-child(2) > label').type('teste@teste')
         cy.get('.woocommerce-form > .button').click()
