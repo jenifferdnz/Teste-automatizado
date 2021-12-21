@@ -9,7 +9,6 @@ context ('Funcionalidade login', () =>{
     
     afterEach(() => {
         cy.screenshot()
-        
     });
     
 
