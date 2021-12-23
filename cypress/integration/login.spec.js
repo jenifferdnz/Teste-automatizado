@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+const perfil = require('../fixtures/perfil.json')
 
 context ('Funcionalidade login', () =>{
 
@@ -29,6 +30,13 @@ context ('Funcionalidade login', () =>{
         cy.get('.woocommerce-error > li').should('contain', 'Erro: O usuário @teste.com não está')
 
     })
+
+    it.only ('Deve fazer login com sucesso - Usando arquivo de dados', () => {
+        cy.get('.woocommerce-form > :nth-child(1) > label').type(perfil.usuario)
+        cy.get('.woocommerce-form > :nth-child(2) > label').type(perfil.senha)
+        cy.get('.woocommerce-form > .button').click()
+        
+    });
 
     it("Deve exibir uma mensagem de erro ao inserir senha inválida", ()=> {
         cy.get('.woocommerce-form > :nth-child(1) > label').type('aluno_ebac@teste.com')
