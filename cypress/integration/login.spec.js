@@ -31,10 +31,23 @@ context ('Funcionalidade login', () =>{
 
     })
 
-    it.only ('Deve fazer login com sucesso - Usando arquivo de dados', () => {
+    it('Deve fazer login com sucesso - Usando arquivo de dados', () => {
         cy.get('.woocommerce-form > :nth-child(1) > label').type(perfil.usuario)
         cy.get('.woocommerce-form > :nth-child(2) > label').type(perfil.senha)
         cy.get('.woocommerce-form > .button').click()
+
+        cy.get('.page-title').should('contain', 'Minha conta')
+        
+    });
+
+    it.only('Deve fazer login com sucesso - Usando fixture', () => {
+        cy.fixture('perfil.json').then(dados => {
+            cy.get('.woocommerce-form > :nth-child(1) > label').type(dados.usuario)
+            cy.get('.woocommerce-form > :nth-child(2) > label').type(dados.senha, {log:false})
+            cy.get('.woocommerce-form > .button').click()
+    
+            cy.get('.page-title').should('contain', 'Minha conta')
+        })
         
     });
 
