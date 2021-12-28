@@ -24,11 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-const { system } = require("faker")
-
 Cypress.Commands.add('login', (usuario, senha) => {
-    cy.get('#username').type('aluno_ebac@teste.com')
-    cy.get('#password').type('teste@teste.com')
+    cy.get('#username').type(usuario)
+    cy.get('#password').type(senha)
     cy.get('.woocommerce-form > .button').click()
 })
 
