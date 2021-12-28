@@ -4,7 +4,7 @@ const perfil = require('../fixtures/perfil.json')
 context ('Funcionalidade login', () =>{
 
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+        cy.visit('minha-conta/')
 
     });
     
@@ -13,9 +13,9 @@ context ('Funcionalidade login', () =>{
     });
     
 
-    it ('Deve fazer login com sucesso', ()=> {
-        cy.get('.woocommerce-form > :nth-child(1) > label').type('aluno_ebac@teste.com')
-        cy.get('.woocommerce-form > :nth-child(2) > label').type('teste@teste.com')
+    it.only('Deve fazer login com sucesso', ()=> {
+        cy.get('#username').type('aluno_ebac@teste.com')
+        cy.get('#password').type('teste@teste.com')
         cy.get('.woocommerce-form > .button').click()
 
         cy.get('.page-title').should('contain', 'Minha conta')

@@ -23,3 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const { system } = require("faker")
+
+Cypress.Commands.add('login', (usuario, senha) => {
+    cy.get('#username').type('aluno_ebac@teste.com')
+    cy.get('#password').type('teste@teste.com')
+    cy.get('.woocommerce-form > .button').click()
+})
+
+Cypress.Commands.add('preCadastro', () => {
+    cy.get('.register > :nth-child(1) > label').type(email)
+    cy.get('#reg_password').type(senha)
+    cy.get(':nth-child(4) > .button').click()
+
+    cy.get('.woocommerce-MyAccount-navigation-link--edit-account > a').click()
+    cy.get('#account_first_name').type(nome)
+    cy.get('#account_last_name').type(sobrenome)
+    cy.get('.woocommerce-Button').click()
+})
