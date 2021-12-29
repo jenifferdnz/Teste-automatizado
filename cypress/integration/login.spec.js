@@ -39,7 +39,7 @@ context ('Funcionalidade login', () =>{
         
     });
 
-    it.only('Deve fazer login com sucesso - Usando fixture', () => {
+    it('Deve fazer login com sucesso - Usando fixture', () => {
         cy.fixture('perfil.json').then(dados => {
             cy.get('.woocommerce-form > :nth-child(1) > label').type(dados.usuario)
             cy.get('.woocommerce-form > :nth-child(2) > label').type(dados.senha, {log:false})
