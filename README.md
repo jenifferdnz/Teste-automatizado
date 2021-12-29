@@ -1,3 +1,3 @@
 # teste-ebac-ui
 
-Teste realizados do curso EBAC
+Testes realizados do curso EBAC
