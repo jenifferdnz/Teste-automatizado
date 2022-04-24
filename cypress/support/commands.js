@@ -42,10 +42,11 @@ Cypress.Commands.add('preCadastro', (email, senha, nome, sobrenome) => {
 })
 
 Cypress.Commands.add('addProdutos', (produto, quantidade) => {
+
     cy.get('[class="product-block grid"]')
-        .contains(produto).click()
-        cy.get('.button-variable-item-S').click()
-        cy.get('.button-variable-item-Green').click()
-        cy.get('.input-text').clear().type(quantidade)
-        cy.get('.single_add_to_cart_button').click()
+    .contains(produto).click()
+    cy.get('.button-variable-item-S').click()
+    cy.get('.button-variable-item-Green').click()
+    cy.get('.input-text').clear().type(quantidade)
+    cy.get('.single_add_to_cart_button').click()
 })
