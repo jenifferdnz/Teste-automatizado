@@ -13,6 +13,12 @@ pipeline {
                 sh 'npm install --force'
             }
         }
+         
+        stage('rodando o cypress') {
+            steps {
+                sh 'npx cypress run'
+            }
+        }
         
     }
 }
