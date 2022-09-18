@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clonar repositório') {
+            steps {
+                git branch: 'main', url: 'https://github.com/jenifferdnz/teste-ebac-ui.git'
+            }
+        }
+        
+        stage('instalando dependências') {
+            steps {
+                sh 'npm install --force'
+            }
+        }
+         
+        stage('rodando o cypress') {
+            steps {
+                sh 'npx cypress run'
+            }
+        }
+        
+    }
+}
