@@ -1,3 +1,3 @@
-# teste-ebac-ui
+# Teste automatizado
 
-Testes realizados do curso EBAC
+Teste automatizado com cypress.
