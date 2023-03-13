@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run":"npx cypress run",
+    "cy:run": "npx cypress run",
     "cy:report": "cypress run --record --key 0054c221-c238-4b08-9472-710bbd4f7db0"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/jenifferdnz/teste-ebac-ui#readme",
   "devDependencies": {
+    "@types/cypress": "^1.1.3",
     "cypress": "^8.7.0"
   },
   "dependencies": {
